@@ -1,0 +1,42 @@
+name: Rebuild _index.json
+on:
+  push:
+    branches: [main]
+    paths: ['lenses/*.json']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build index
+        run: |
+          python3 - <<'PY'
+          import glob, json, time, os
+          entries = []
+          for p in sorted(glob.glob('lenses/*.json')):
+              if os.path.basename(p).startswith('_'):
+                  continue
+              with open(p) as f:
+                  entries.append(json.load(f))
+          out = {
+              "version": 1,
+              "generated_at": int(time.time() * 1000),
+              "lenses": entries,
+          }
+          with open('_index.json', 'w') as f:
+              json.dump(out, f, indent=2)
+              f.write('\n')
+          print(f"indexed {len(entries)} lens(es)")
+          PY
+      - name: Commit if changed
+        run: |
+          if ! git diff --quiet _index.json; then
+            git config user.name 'lenses-bot'
+            git config user.email 'lenses-bot@users.noreply.github.com'
+            git add _index.json
+            git commit -m 'chore: rebuild _index.json'
+            git push
+          fi
