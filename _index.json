@@ -1,5 +1,44 @@
 {
   "version": 1,
-  "generated_at": 1778999991929,
-  "lenses": []
+  "generated_at": 1779000306721,
+  "lenses": [
+    {
+      "id": "example.demo",
+      "version": "1.0",
+      "author": "@vodou",
+      "git_url": "https://github.com/VodouAI/lenses-directory",
+      "git_ref": "main",
+      "sha256_lock": "",
+      "manifest": {
+        "type": "example.demo",
+        "version": 1,
+        "motive": "Placeholder lens entry so the directory browser has something to render until real lenses ship.",
+        "url_patterns": [
+          "example.com/**"
+        ],
+        "ttl_seconds": 3600,
+        "requires": {
+          "network_domains": [
+            "example.com"
+          ],
+          "runs_js": false,
+          "paths": [
+            "cheerio"
+          ],
+          "cookie_scope": "ephemeral"
+        },
+        "icon": "\u2728",
+        "category": "demo",
+        "author": "@vodou",
+        "license": "MIT",
+        "extracts": [
+          "title",
+          "description"
+        ]
+      },
+      "stars": 0,
+      "last_review": "2026-05-17",
+      "license": "MIT"
+    }
+  ]
 }
