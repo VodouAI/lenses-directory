@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "generated_at": 1779055143081,
+  "generated_at": 1779067182621,
   "lenses": [
     {
       "id": "gmail.unread",
-      "version": "2.0",
+      "version": "3.0",
       "author": "@vodou",
       "git_url": "https://github.com/VodouAI/vodou-lens-gmail-unread",
-      "git_ref": "v2.0",
+      "git_ref": "v3.0",
       "sha256_lock": "",
       "manifest": {
         "type": "gmail.unread",
-        "version": 2,
-        "motive": "Show the latest 10 unread emails from your Gmail inbox \u2014 sender, subject, snippet \u2014 by reading the page you're already logged into via Vodou Bridge. Uses an opportunistic cache so no tab is opened when you've recently visited Gmail.",
+        "version": 3,
+        "motive": "Show the latest 10 unread emails from your Gmail inbox \u2014 sender, subject, snippet \u2014 by reading the page you're already logged into via Vodou Bridge. Reads from an already-open Gmail tab (no hidden tabs ever opened).",
         "url_patterns": [
           "mail.google.com/mail/u/*/#inbox",
           "mail.google.com/mail/u/*/#search/is:unread",
